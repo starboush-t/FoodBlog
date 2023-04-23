@@ -243,3 +243,8 @@ hr {
   color: #444;
   width: 100%;
 }
+
+.screens {
+  width: 200px;
+  height: 300px;
+}
