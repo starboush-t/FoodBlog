@@ -1,0 +1,176 @@
+<%- include('includes/head.ejs') %>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <%- include('includes/navigation.ejs') %>
+          <hr>
+          <%- include('hero.ejs') %>
+      </header>
+      <main>
+        <section class="categoreis">
+          <% if(categories !='' ) { %>
+            <% categories.forEach(function(category, index) { %>
+              <div class="category">
+                <a href="/categories/<%= category.name %>" class="category__link">
+                  <div class="category__img">
+                    <img src="/img/<%- category.image%>" alt="<%- category.name%>" />
+                  </div>
+                  <div class="category__name pt-1"><%- category.name%></div>
+                </a>
+              </div>
+              <%}) %>
+                <% } %>
+
+                  <div class="category">
+                    <a href="/categories" class="category__link">
+                      <div class="category__img">
+                        <img src="/img/view-all.jpg" alt="Viewl All" />
+                      </div>
+                      <div class="category__name pt-1">View All</div>
+                    </a>
+                  </div>
+        </section>
+
+        <!-- Latest Start -->
+
+        <section class="latest">
+          <div class="latest__title">
+            <h2>Latest Recipes</h2>
+            <a href="/explore-latest" class="ms-auto">View More</a>
+          </div>
+          <div class="latest__recipes">
+            <% if(food !='' ) { %>
+              <% food.latest.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                  <div class="category__img category__img--large shadow">
+                    <img src="/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                  </div>
+                  <div class="pt-1">
+                    <%= recipe.name %>
+                  </div>
+                </a>
+                <% }) %>
+                  <% } else { %>
+                    <p>No items found.</p>
+                    <% } %>
+          </div>
+        </section>
+        <!-- Latest End -->
+
+
+
+        <!-- Thai Start -->
+        <section class="latest">
+          <div class="latest__title">
+            <h2>Thai Recipes</h2>
+            <a href="/categories/Thai" class="ms-auto">View More</a>
+          </div>
+          <div class="latest__recipes">
+
+            <% if(typeof food.thai !=='undefined' && food.thai.length> 0) { %>
+              <% food.thai.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                  <div class="category__img category__img--large shadow">
+                    <img src="/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                  </div>
+                  <div class="pt-1">
+                    <%= recipe.name %>
+                  </div>
+                </a>
+                <% }) %>
+                  <% } else { %>
+                    <p>No items found.</p>
+                    <% } %>
+          </div>
+        </section>
+        <!-- Thai End -->
+
+
+        <!-- American Start -->
+        <section class="latest">
+          <div class="latest__title">
+            <h2>American Recipes</h2>
+            <a href="/categories/American" class="ms-auto">View More</a>
+          </div>
+          <div class="latest__recipes">
+
+            <% if(food !='' ) { %>
+              <% food.american.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                  <div class="category__img category__img--large shadow">
+                    <img src="/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                  </div>
+                  <div class="pt-1">
+                    <%= recipe.name %>
+                  </div>
+                </a>
+                <% }) %>
+                  <% } else { %>
+                    <p>No items found.</p>
+                    <% } %>
+          </div>
+        </section>
+
+        <!-- American End -->
+
+        <!-- Chinese End -->
+        <section class="latest">
+          <div class="latest__title">
+            <h2>Chinese Recipes</h2>
+            <a href="/categories/Chinese" class="ms-auto">View More</a>
+          </div>
+          <div class="latest__recipes">
+
+            <% if(food !='' ) { %>
+              <% food.chinese.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                  <div class="category__img category__img--large shadow">
+                    <img src="/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                  </div>
+                  <div class="pt-1">
+                    <%= recipe.name %>
+                  </div>
+                </a>
+                <% }) %>
+                  <% } else { %>
+                    <p>No items found.</p>
+                    <% } %>
+          </div>
+        </section>
+        <!-- Chinese End -->
+
+        <section class="latest">
+          <div class="latest__title">
+            <h2>Mexican Recipes</h2>
+            <a href="/categories/Chinese" class="ms-auto">View More</a>
+          </div>
+          <div class="latest__recipes">
+
+            <% if(food !='' ) { %>
+              <% food.mexican.forEach(function(recipe, index){ %>
+                <a href="/recipe/<%= recipe._id %>" class="category__link">
+                  <div class="category__img category__img--large shadow">
+                    <img src="/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+                  </div>
+                  <div class="pt-1">
+                    <%= recipe.name %>
+                  </div>
+                </a>
+                <% }) %>
+                  <% } else { %>
+                    <p>No items found.</p>
+                    <% } %>
+          </div>
+        </section>
+
+        <!-- Submit Recpie Start -->
+        <section class="submit_recipe">
+          <%- include('submit-recipe.ejs') %>
+        </section>
+      </main>
+
+    </div>
+
+    <%- include('includes/end.ejs') %>

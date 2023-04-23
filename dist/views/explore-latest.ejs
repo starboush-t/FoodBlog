@@ -1,0 +1,32 @@
+<%- include('includes/head.ejs') %>
+  <style>
+    .latest{
+      display: flex;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <%- include('includes/navigation.ejs') %>
+      </header>
+      <section class="latest">
+        <div class="latest__recipes" style="flex-wrap: wrap;">
+        <% if(recipe !='' ) { %>
+          <% recipe.forEach(function(recipe, index){ %>
+            <a href="/recipe/<%= recipe._id %>" class="category__link">
+              <div class="category__img category__img--large shadow">
+                <img src="/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+              </div>
+              <div class="pt-1">
+                <%= recipe.name %>
+              </div>
+            </a>
+            <% }) %>
+              <% } else { %>
+                <p>No items found.</p>
+                <% } %>
+              </div>
+      </section>
+      <%- include('includes/end.ejs') %>

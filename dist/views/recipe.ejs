@@ -1,0 +1,84 @@
+<%- include('includes/head.ejs') %>
+  <style>
+    .recipe {
+      display: flex;
+      padding: 2rem 3rem;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .recipe__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, .3);
+    }
+
+    .recipe__image img {
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .recipe__detials {
+      padding: 1rem 2rem;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <%- include('includes/navigation.ejs') %>
+      </header>
+      <main>
+        <% if(recipe !=null) {%>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <%- recipe.name %>
+              </li>
+            </ol>
+          </nav>
+          <div class="recipe">
+            <div class="recipe__image">
+              <img src="/<%= recipe.image%>" alt="<%=recipe.name%>" />
+            </div>
+            <div class="recipe__detials">
+              <div class="recpie__info">
+                <div class="recpie__name">
+                  <h1>
+                    <%= recipe.name %>
+                  </h1>
+                </div>
+                <div class="recpie__name">
+                  <h4>
+                    <%= recipe.category%>
+                  </h4>
+                </div>
+                <div class="recpie__name">
+                  <h4>
+                    <%= recipe.description%>
+                  </h4>
+                </div>
+              </div>
+              <div class="recipe__ing">
+                <h4>Ingredients</h4>
+                <ul>
+                  <% recipe.ingredients.forEach(function(ingredients, index) { %>
+                    <li>
+                      <%= ingredients %>
+                    </li>
+                    <%}) %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <%} else {%>
+
+            <h1>No items found</h1>
+            <% } %>
+
+      </main>
+      <%- include('includes/end.ejs') %>
