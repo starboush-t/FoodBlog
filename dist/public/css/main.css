@@ -243,3 +243,9 @@ hr {
   color: #444;
   width: 100%;
 }
+
+.cards {
+  width: 200px;
+  height: 270px;
+  background-color: #ccc;
+}
